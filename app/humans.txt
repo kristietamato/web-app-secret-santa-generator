@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  Kristie Gleske, Software Developer
+
+# THANKS
+
+  Google Web Starter Kit
+
+# TECHNOLOGY COLOPHON
+
+  JAVASCRIPT, HTML5, CSS3
