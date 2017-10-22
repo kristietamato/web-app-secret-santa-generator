@@ -87,7 +87,6 @@
     var members = getMembers();
     members.push(memberName);
     localStorage.setItem('member', JSON.stringify(members));
-
     show();
     return false;
   }
@@ -95,11 +94,10 @@
   function show() {
     var members = getMembers();
 
-    var html = '<ul';
+    var html = '';
     for(var i = 0; i < members.length; i++) {
-      html += '<li>' + members[i] + '<button class="remove" id="' + i  + '">x</button></li>';
+      html +='<div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone"><div class="section__circle-container__circle mdl-color--primary"></div></div><div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone"><h5>' + members[i] + '</h5>Email <a href="#">Email [name]</a><button class="remove" id="' + i  + '">x</button></div>';
     };
-    html += '</ul>';
     document.getElementById('members-list').innerHTML = html;
 
     var buttons = document.getElementsByClassName('remove');
@@ -123,5 +121,3 @@
   show();
 })();
 
-
-  
