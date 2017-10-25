@@ -77,8 +77,8 @@
      members: [],
      addMember: function (name, email) {
         this.members.push({
-           name: name,
-           email: email,
+           memberName: name,
+           memberEmail: email,
            emailed: false
         });
      },
@@ -148,9 +148,9 @@
            var memberTextWithCompletion = "";
 
            if (member.emailed) {
-              memberTextWithCompletion = "(x) " + member.memberText;
+              memberTextWithCompletion = member.memberName + " " + member.memberEmail + " (x)";
            } else {
-              memberTextWithCompletion = "( ) " + member.memberText;
+              memberTextWithCompletion = member.memberName + " " + member.memberEmail + " ( )";
            }
 
            memberLi.textContent = memberTextWithCompletion;
