@@ -75,7 +75,7 @@
   // Manage the Secret Santa list
   var membersList = {
      members: [],
-     addMember: function (name, email) {
+     addMember: function (name, email, secretSanta, giftee) {
         this.members.push({
            memberName: name,
            memberEmail: email,
@@ -83,7 +83,7 @@
            memberGiftee: giftee,
         });
      },
-     deleteMember: function () {
+     deleteMember: function (id) {
         this.members.splice(id, 1);
      }
   };
@@ -99,6 +99,7 @@
      },
      deleteMember: function () {
         var id = this.getAttribute('id');
+        membersList.deleteMember(id);
         view.displayMembers();
      }
   };
@@ -106,13 +107,18 @@
   var view = {
      displayMembers: function () {
         var htmlToAdd = '';
-        var htmlCircle = '<div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone"><div class="section__circle-container__circle"></div></div>';
+        var htmlCircle = '<div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone"><div class="section__circle-container__circle delete"></div></div>';
         var htmlStartDiv = '<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">';
         for (var count = 0; count < membersList.members.length; count++) {
            var member = membersList.members[count];
            htmlToAdd += htmlCircle + htmlStartDiv + '<h5>' + member.memberName + '</h5>' + member.memberEmail + '</div>';
         }
         document.getElementById('members-list').innerHTML = htmlToAdd;
+
+        var buttons = document.getElementsByClassName('delete');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', handlers.deleteMember);
+        };
      }
   };
 
