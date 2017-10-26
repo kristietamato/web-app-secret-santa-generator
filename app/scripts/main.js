@@ -99,8 +99,8 @@
         email.value = "";
         view.displayMembers();
      },
-     deleteMember: function () {
-        var id = this.getAttribute('id');
+     deleteMember: function (id) {
+        //var id = this.getAttribute('id');
         membersList.deleteMember(id);
         view.displayMembers();
      }
@@ -119,10 +119,16 @@
 
         var buttons = document.getElementsByClassName('delete');
         for (var i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener('click', handlers.deleteMember);
+            buttons[i].addEventListener('click', listener.bind(null, i));
         };
      }
   };
+
+  function listener(index) {
+    if (confirm("Are you sure you want to delete " + membersList.members[index].memberName + "?")) {
+      handlers.deleteMember(index)
+    }
+  }
 
   document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
 })();
