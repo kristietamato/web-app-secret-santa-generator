@@ -74,43 +74,20 @@
 
   // Manage the Secret Santa list
   var membersList = {
-     members: [],
-     addMember: function (name, email) {
-        this.members.push({
-           memberName: name,
-           memberEmail: email,
-           emailed: false
-        });
-     },
-     deleteMember: function () {
-        this.members.splice(id, 1);
-     },
-     toggleEmailed: function (position) {
-        var member = this.members[position];
-        member.emailed = !member.emailed;
-     },
-     toggleAll: function () {
-        var totalMembers = this.members.length;
-        var emailedMembers = 0;
-
-        // get number of emailed members
-        for (var count = 0; count < totalMembers; count++) {
-           if (this.members[count].emailed) {
-              emailedMembers++;
-           }
-        }
-
-        // if all true, make all members false. Else make all true
-        if (emailedMembers === totalMembers) {
-           for (var count = 0; count < totalMembers; count++) {
-              this.members[count].emailed = false;
-           }
-        } else {
-           for (var count = 0; count < totalMembers; count++) {
-              this.members[count].emailed = true;
-           }
-        }
-     }
+    members: [],
+    addMember: function (name, email, secretSanta, giftee) {
+      this.members.push({
+          memberName: name,
+          memberEmail: email,
+          memberSecretSanta: secretSanta,
+          memberGiftee: giftee,
+      });
+    },
+    deleteMember: function (index) {
+      if (index > -1) {
+        this.members.splice(index, 1);
+      }
+    }
   };
 
   var handlers = {
@@ -122,18 +99,9 @@
         email.value = "";
         view.displayMembers();
      },
-     deleteMember: function () {
-        var id = this.getAttribute('id');
-        view.displayMembers();
-     },
-     toggleEmailed: function () {
-        var toggleEmailedPositionInput = document.getElementById("toggle-emailed");
-        membersList.toggleEmailed(toggleEmailedPositionInput.valueAsNumber);
-        toggleEmailedPositionInput.value = "";
-        view.displayMembers();
-     },
-     toggleAll: function () {
-        membersList.toggleAll();
+     deleteMember: function (id) {
+        //var id = this.getAttribute('id');
+        membersList.deleteMember(id);
         view.displayMembers();
      }
   };
@@ -141,26 +109,26 @@
   var view = {
      displayMembers: function () {
         var htmlToAdd = '';
-        var htmlCircle = '<div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone"><div class="section__circle-container__circle"></div></div>';
+        var htmlCircle = '<div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone"><div class="section__circle-container__circle delete"></div></div>';
         var htmlStartDiv = '<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">';
-        var emailMessage = '';
         for (var count = 0; count < membersList.members.length; count++) {
            var member = membersList.members[count];
-           //var memberText = "";
-           htmlToAdd += htmlCircle + htmlStartDiv + '<h5>' + member.memberName + '</h5>' + '<a href="#">eMail ' + member.memberEmail + ' </a></div>';
-
-           /*if (member.emailed) {
-              memberText = member.memberName + " " + member.memberEmail + " (x)";
-           } else {
-              memberText = member.memberName + " " + member.memberEmail + " ( )";
-           }*/
-
-           //memberLi.textContent = memberText;
-           //membersUl.appendChild(memberLi);
+           htmlToAdd += htmlCircle + htmlStartDiv + '<h5>' + member.memberName + '</h5>' + member.memberEmail + '</div>';
         }
         document.getElementById('members-list').innerHTML = htmlToAdd;
+
+        var buttons = document.getElementsByClassName('delete');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', listener.bind(null, i));
+        };
      }
   };
+
+  function listener(index) {
+    if (confirm("Are you sure you want to delete " + membersList.members[index].memberName + "?")) {
+      handlers.deleteMember(index)
+    }
+  }
 
   document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
 })();
