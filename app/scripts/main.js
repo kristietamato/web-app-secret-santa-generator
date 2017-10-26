@@ -74,18 +74,20 @@
 
   // Manage the Secret Santa list
   var membersList = {
-     members: [],
-     addMember: function (name, email, secretSanta, giftee) {
-        this.members.push({
-           memberName: name,
-           memberEmail: email,
-           memberSecretSanta: secretSanta,
-           memberGiftee: giftee,
-        });
-     },
-     deleteMember: function (id) {
-        this.members.splice(id, 1);
-     }
+    members: [],
+    addMember: function (name, email, secretSanta, giftee) {
+      this.members.push({
+          memberName: name,
+          memberEmail: email,
+          memberSecretSanta: secretSanta,
+          memberGiftee: giftee,
+      });
+    },
+    deleteMember: function (index) {
+      if (index > -1) {
+        this.members.splice(index, 1);
+      }
+    }
   };
 
   var handlers = {
