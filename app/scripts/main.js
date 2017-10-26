@@ -140,22 +140,25 @@
 
   var view = {
      displayMembers: function () {
-        var membersUl = document.querySelector("ul");
-        membersUl.innerHTML = "";
+        var htmlToAdd = '';
+        var htmlCircle = '<div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone"><div class="section__circle-container__circle"></div></div>';
+        var htmlStartDiv = '<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">';
+        var emailMessage = '';
         for (var count = 0; count < membersList.members.length; count++) {
-           var memberLi = document.createElement("li");
            var member = membersList.members[count];
-           var memberTextWithCompletion = "";
+           //var memberText = "";
+           htmlToAdd += htmlCircle + htmlStartDiv + '<h5>' + member.memberName + '</h5>' + '<a href="#">eMail ' + member.memberEmail + ' </a></div>';
 
-           if (member.emailed) {
-              memberTextWithCompletion = member.memberName + " " + member.memberEmail + " (x)";
+           /*if (member.emailed) {
+              memberText = member.memberName + " " + member.memberEmail + " (x)";
            } else {
-              memberTextWithCompletion = member.memberName + " " + member.memberEmail + " ( )";
-           }
+              memberText = member.memberName + " " + member.memberEmail + " ( )";
+           }*/
 
-           memberLi.textContent = memberTextWithCompletion;
-           membersUl.appendChild(memberLi);
+           //memberLi.textContent = memberText;
+           //membersUl.appendChild(memberLi);
         }
+        document.getElementById('members-list').innerHTML = htmlToAdd;
      }
   };
 

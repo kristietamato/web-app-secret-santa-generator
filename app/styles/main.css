@@ -143,7 +143,7 @@ html, body {
   padding-top: 8px;
 }
 .mdl-demo section .section__text h5 {
-  font-size: inherit;
+  font-size: 14;
   margin: 0;
   margin-bottom: 0.5em;
 }
@@ -155,6 +155,8 @@ html, body {
   height: 64px;
   border-radius: 32px;
   margin: 8px 0;
+  background-image: url("/images/trash-icon.png");
+  cursor: pointer;
 }
 .mdl-demo section.section--footer .section__circle--big {
   width: 100px;
