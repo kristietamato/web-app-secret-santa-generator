@@ -75,12 +75,13 @@
   // Manage the Secret Santa list
   var membersList = {
     members: [],
-    addMember: function (name, email, secretSanta, giftee) {
+    addMember: function (name, email, index, secretSantaIndex, gifteeIndex) {
       this.members.push({
           memberName: name,
           memberEmail: email,
-          memberSecretSanta: secretSanta,
-          memberGiftee: giftee,
+          memberIndex: index,
+          memberSecretSantaIndex: secretSantaIndex,
+          memberGifteeIndex: gifteeIndex
       });
     },
     deleteMember: function (index) {
@@ -137,5 +138,72 @@
 
   document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
   view.displayMembers();
+
+  document.getElementById('draw-secret-santas').addEventListener('click', drawSecretSantas);
+
+  function drawSecretSantas () {
+    // Number of members
+    var totalMembers = membersList.members.length;
+    // Assign index numbers to ordered members array
+    var membersArray = membersList.members;
+    for(var count = 0; count < totalMembers; count++) {
+      membersArray[count].memberIndex = count;
+    }
+    // Create 2 shuffled arrays of members 
+    var membersArrayShuffledA = shuffle(membersArray.slice());
+    var membersArrayShuffledB = shuffle(membersArray.slice());
+
+    // Randomly assign 2 indexes to each member till all members are assigned
+    for ( var count2 = 0; count2 < totalMembers; count2++) {
+      // Members can't be their own secret santa
+      if(membersArray[count2].memberIndex === membersArrayShuffledA[0].memberIndex) {
+        // Swap first 2 members of shuffled array A
+        swap(membersArrayShuffledA, 0, 1);
+      }
+      if(membersArray[count2].memberIndex === membersArrayShuffledB[0].memberIndex) {
+        // Swap first 2 members of shuffled array B
+        swap(membersArrayShuffledB, 0, 1);
+      }
+      // Set member secret santa and giftee indexes
+      membersArray[count2].memberSecretSantaIndex = membersArrayShuffledA[0].memberIndex;
+      membersArray[count2].memberGifteeIndex = membersArrayShuffledB[0].memberIndex;
+
+      // Pop the first item in shuffled arrays
+      membersArrayShuffledA.splice(0, 1);
+      membersArrayShuffledB.splice(0, 1);
+    }
+
+    console.log(membersArray);
+    // validate - check each member has a secret santa and giftee index
+    // validate - check each index is unique and within the range of count
+    // validate - member's index cannot be secret santa or giftee index
+  }
+
+  // https://git.daplie.com/Daplie/knuth-shuffle
+  function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
+  function swap(input, index0, index1) {
+    var temp = input[index0];
+
+    input[index0] = input[index1];
+    input[index1] = temp;
+  }
 })();
 
