@@ -121,15 +121,21 @@
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener('click', listener.bind(null, i));
         };
+        displayCount();
      }
   };
 
-  function listener(index) {
-    if (confirm("Are you sure you want to delete " + membersList.members[index].memberName + "?")) {
+  function listener (index) {
+    if (confirm("Click 'OK' to delete: " + membersList.members[index].memberName)) {
       handlers.deleteMember(index)
     }
   }
 
+  function displayCount () {
+    document.getElementById("members-count").innerHTML = membersList.members.length;
+  }
+
   document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
+  view.displayMembers();
 })();
 
