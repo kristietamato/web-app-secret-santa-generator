@@ -1,6 +1,7 @@
-document.getElementById('email-all-members').addEventListener('click', emailMembers);
+$(document).ready(function() {
+  $('#my-modal').load('modal.html');
+});
 
-openModal();
 function openModal () {
   // Get the modal
   var modal = document.getElementById('my-modal');
@@ -24,5 +25,7 @@ function openModal () {
 }
 
 function emailMembers () {
-  
+  alert('elail members');
 }
+
+document.getElementById('email-all-members').addEventListener('click', emailMembers);

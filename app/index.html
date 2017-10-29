@@ -39,7 +39,6 @@
     <!-- Material Design icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-
     <!-- Material Design Lite page styles:
     You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
     Format: material.color1-color2.min.css, some examples:
@@ -115,7 +114,6 @@
                         <input type="text" class="form-control" id="input-zip">
                       </div>
                     </div>
-                  
                 </form>
                 <button class="btn btn-primary mdl-button float-left" id="add-member-btn" type="submit">Add</button>
               </div>
@@ -133,21 +131,7 @@
           </section>
         </div>
         <!-- The Modal -->
-        <div id="my-modal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3>Secret Santas Generator: Next step</h3>
-              <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-              <p>Some text in the Modal Body</p>
-            </div>
-            <div class="modal-footer">
-              <button class="mdl-button btn btn-primary float-left" id="email-all-members">Email All Members</button>
-            </div>
-          </div>
-        </div>
+        <div id="my-modal" class="modal"></div>
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--bottom-section">
             <div class="mdl-logo">
@@ -159,10 +143,11 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
     <!-- build:js scripts/main.min.js -->
     <script src="scripts/modal.js"></script>
     <script src="scripts/main.js"></script>
