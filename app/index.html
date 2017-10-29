@@ -117,7 +117,7 @@
                     </div>
                   
                 </form>
-                <button class="btn btn-primary mdl-button" id="add-member-btn" type="submit">Add</button>
+                <button class="btn btn-primary mdl-button float-left" id="add-member-btn" type="submit">Add</button>
               </div>
             </div>
           </section>
@@ -127,32 +127,26 @@
                 <h4>Members (<span id="members-count"></span>)</h4>
                 <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing" id="members-list">
                 </div>
-                <div class="mdl-card__actions">
-                  <button class="mdl-button btn btn-primary" id="draw-secret-santas">Draw Secret Santas</button>
-                  <button class="mdl-button btn btn-primary" id="email-all-members">Email All Members</button>
-                </div>
-
-                <!-- The Modal -->
-                <div id="myModal" class="modal">
-
-                  <!-- Modal content -->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <span class="close">&times;</span>
-                      <h2>Modal Header</h2>
-                    </div>
-                    <div class="modal-body">
-                      <p>Some text in the Modal Body</p>
-                      <p>Some other text...</p>
-                    </div>
-                    <div class="modal-footer">
-                      <h3>Modal Footer</h3>
-                    </div>
-                  </div>
-
-                </div>
+                <button class="mdl-button btn btn-primary float-left" id="draw-secret-santas">Draw Secret Santas</button>
+              </div>
             </div>
           </section>
+        </div>
+        <!-- The Modal -->
+        <div id="my-modal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Secret Santas Generator: Next step</h3>
+              <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the Modal Body</p>
+            </div>
+            <div class="modal-footer">
+              <button class="mdl-button btn btn-primary float-left" id="email-all-members">Email All Members</button>
+            </div>
+          </div>
         </div>
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--bottom-section">
@@ -170,6 +164,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <!-- build:js scripts/main.min.js -->
+    <script src="scripts/modal.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 

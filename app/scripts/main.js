@@ -119,8 +119,11 @@
         var buttons = document.getElementsByClassName('delete');
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener('click', listener.bind(null, i));
-        };
-        displayCount();
+        }
+        view.displayCount();
+     },
+     displayCount: function() {
+       document.getElementById("members-count").innerHTML = membersList.members.length;
      }
   };
 
@@ -129,15 +132,6 @@
       handlers.deleteMember(index)
     }
   }
-
-  function displayCount () {
-    document.getElementById("members-count").innerHTML = membersList.members.length;
-  }
-
-  document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
-  view.displayMembers();
-
-  document.getElementById('draw-secret-santas').addEventListener('click', drawSecretSantas);
 
   function drawSecretSantas () {
     // Number of members
@@ -173,7 +167,7 @@
   }
 
   // https://git.daplie.com/Daplie/knuth-shuffle
-  function shuffle(array) {
+  function shuffle (array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
@@ -188,38 +182,18 @@
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-
     return array;
   }
 
-  function swap(input, index0, index1) {
+  function swap (input, index0, index1) {
     var temp = input[index0];
 
     input[index0] = input[index1];
     input[index1] = temp;
   }
 
-  function openModal() {
-    // Get the modal
-    var modal = document.getElementById('myModal');
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // Open the modal 
-    modal.style.display = "block";
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-  }
+  document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
+  document.getElementById('draw-secret-santas').addEventListener('click', drawSecretSantas);
+  view.displayMembers();
 })();
 

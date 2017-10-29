@@ -2,8 +2,8 @@
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    z-index: 100; /* Sit on top */
+    padding-top: 160px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -20,7 +20,7 @@
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 80%;
+    width: 60%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -56,14 +56,14 @@
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #4543bb;
     color: white;
 }
 
 .modal-body {padding: 2px 16px;}
 
 .modal-footer {
+    display: block !important;
     padding: 2px 16px;
-    background-color: #5cb85c;
     color: white;
 }
