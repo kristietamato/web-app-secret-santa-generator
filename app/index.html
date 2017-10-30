@@ -39,7 +39,6 @@
     <!-- Material Design icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-
     <!-- Material Design Lite page styles:
     You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
     Format: material.color1-color2.min.css, some examples:
@@ -51,6 +50,7 @@
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/modal.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
@@ -114,9 +114,8 @@
                         <input type="text" class="form-control" id="input-zip">
                       </div>
                     </div>
-                  
                 </form>
-                <button class="btn btn-primary mdl-button" id="add-member-btn" type="submit">Add</button>
+                <button class="btn btn-primary mdl-button float-left" id="add-member-btn" type="submit">Add</button>
               </div>
             </div>
           </section>
@@ -126,13 +125,13 @@
                 <h4>Members (<span id="members-count"></span>)</h4>
                 <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing" id="members-list">
                 </div>
-                <div class="mdl-card__actions">
-                  <button class="mdl-button btn btn-primary" id="draw-secret-santas">Draw Secret Santas</button>
-                  <button class="mdl-button btn btn-primary" id="email-all-members">Email All Members</button>
-                </div>
+                <button class="mdl-button btn btn-primary float-left" id="draw-secret-santas">Draw Secret Santas</button>
+              </div>
             </div>
           </section>
         </div>
+        <!-- The Modal -->
+        <div id="my-modal" class="modal"></div>
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--bottom-section">
             <div class="mdl-logo">
@@ -144,11 +143,13 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
     <!-- build:js scripts/main.min.js -->
+    <script src="scripts/modal.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 

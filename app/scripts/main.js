@@ -119,8 +119,11 @@
         var buttons = document.getElementsByClassName('delete');
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener('click', listener.bind(null, i));
-        };
-        displayCount();
+        }
+        view.displayCount();
+     },
+     displayCount: function() {
+       document.getElementById("members-count").innerHTML = membersList.members.length;
      }
   };
 
@@ -129,15 +132,6 @@
       handlers.deleteMember(index)
     }
   }
-
-  function displayCount () {
-    document.getElementById("members-count").innerHTML = membersList.members.length;
-  }
-
-  document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
-  view.displayMembers();
-
-  document.getElementById('draw-secret-santas').addEventListener('click', drawSecretSantas);
 
   function drawSecretSantas () {
     // Number of members
@@ -164,17 +158,16 @@
           swap(membersArrayShuffled, 0, 1);
         }
       }
-
       // Set member secret santa and giftee indexes
       membersArray[count2].memberSecretSantaIndex = membersArrayShuffled[0].memberIndex;
       // Pop the first item in shuffled arrays
       membersArrayShuffled.splice(0, 1);
     }
-    console.log(membersArray);
+    return openModal();
   }
 
   // https://git.daplie.com/Daplie/knuth-shuffle
-  function shuffle(array) {
+  function shuffle (array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
@@ -189,15 +182,18 @@
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-
     return array;
   }
 
-  function swap(input, index0, index1) {
+  function swap (input, index0, index1) {
     var temp = input[index0];
 
     input[index0] = input[index1];
     input[index1] = temp;
   }
+
+  document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
+  document.getElementById('draw-secret-santas').addEventListener('click', drawSecretSantas);
+  view.displayMembers();
 })();
 
