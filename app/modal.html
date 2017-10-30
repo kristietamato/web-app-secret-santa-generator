@@ -9,31 +9,33 @@ include 'php/email-members.php';
 		<span class="close">&times;</span>
 	</div>
 	<div class="modal-body">
-    <form>
+    <form method="post" action="email-members.php">
       <div class="form-row">
         <div class="form-group col-md-5">
           <label for="group-name">Group name</label>
-          <input type="text" class="form-control" id="group-name">
+          <input type="text" class="form-control" id="group-name" name="group-name">
         </div>
         <div class="form-group col-md-2">
           <label for="budget">Budget</label>
-          <input type="number" class="form-control" id="budget" placeholder="$">
+          <input type="number" class="form-control" id="budget" name="budget" placeholder="$">
         </div>
         <div class="form-group col-md-5">
           <label for="exchange-date">Date of gift exchange</label>
-          <input type="date" class="form-control" id="exchange-date">
+          <input type="date" class="form-control" id="exchange-date" name="exchange-date">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label for="email-message">Email message</label>
-          <textarea type="text" class="form-control" id="email-message" rows="5" cols="110"></textarea>
+          <textarea type="text" class="form-control" id="email-message" name="email-message"
+            rows="5" cols="110"></textarea>
         </div>
       </div>
     </form>
 	</div>
 	<div class="modal-footer">
-    <button class="mdl-button btn btn-primary float-left" id="email-all-members" type="submit" 
+    <button class="mdl-button btn btn-primary float-left" id="email-all-members"
+      name="email-all-members" type="submit" 
       onclick="emailMembers()">Email All Members</button>
 	</div>
 </div>
