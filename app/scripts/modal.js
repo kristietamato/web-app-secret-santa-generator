@@ -27,5 +27,3 @@ function openModal () {
 function emailMembers () {
   alert('elail members');
 }
-
-//document.getElementById('email-all-members').addEventListener('click', emailMembers);
