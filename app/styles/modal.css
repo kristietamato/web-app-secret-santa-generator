@@ -68,3 +68,33 @@
     padding: 2px 16px;
     color: white;
 }
+
+.jumbotron {
+    padding: 20px 0 20px 0;
+  }
+  
+  input.ng-invalid.ng-touched {
+    border: 1px solid #DA3637;
+  }
+  
+  input.ng-valid.ng-touched {
+    border: 1px solid #509D12;
+  }
+  
+  textarea.ng-invalid.ng-touched {
+    border: 1px solid #DA3637;
+  }
+  
+  textarea.ng-valid.ng-touched {
+    border: 1px solid #509D12;
+  }
+  
+  .ng-invalid .btn {
+    background: gray;
+  }
+  
+  .error {
+    color: red;
+    padding: 5px 0 5px 0;
+    text-align: center;
+  }
