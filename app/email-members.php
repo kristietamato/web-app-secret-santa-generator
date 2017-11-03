@@ -1,15 +1,15 @@
 <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $member_name = trim_input($_POST['input-name']);
-    $member_email = trim_input($_POST['input-email']);
-    $secret_santa_name = trim_input('sam');
+    $member_email = 'kristietamato@gmail.com';
+    $secret_santa_for = 'Sam';
     $group_name = trim_input($_POST['group-name']);
     $budget = trim_input($_POST['budget']);
     $exchange_date = trim_input($_POST['exchange-date']);
     $message = trim_input($_POST['email-message']);
     $from = 'Tamato.org - Secret Santa Generator';
-    $subject = 'Message from contactform.tamato.org';
-    $body = "From: $member_name \n E-Mail: $member_email \n Message: \n $message";
+    $subject = 'Message from Tamato.org - Secret Santa Generator';
+    $body = "Hello, $member_name, you are the Secret Santa for... $secret_santa_for \n More information: \n $message";
 
     if (mail ($member_email, $subject, $body, $from)) {
       $result='<div class="alert alert-success">Thank you, your message is sent.</div>';
