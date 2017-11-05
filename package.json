@@ -23,7 +23,12 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4",
     "gulp-useref": "^3.1.0",
+    "karma": "^1.7.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-qunit": "^1.2.1",
+    "popper": "^1.0.0",
     "psi": "^2.0.4",
+    "qunitjs": "^2.4.1",
     "run-sequence": "^1.0.1",
     "sw-precache": "^3.2.0",
     "sw-toolbox": "^3.2.1"
