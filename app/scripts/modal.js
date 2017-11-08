@@ -2,7 +2,11 @@ $(document).ready(function() {
   $('#my-modal').load('modal.html');
 });
 
-function openModal () {
+function openModal (membersArray) {
+  var members = [];
+  members = membersArray;
+  JSON.stringify(members);
+
   // Get the modal
   var modal = document.getElementById('my-modal');
   // Open the modal 
@@ -22,6 +26,7 @@ function openModal () {
           modal.style.display = "none";
       }
   }
+  console.log(members);
 }
 
 function emailMembers () {

@@ -163,7 +163,7 @@
       // Pop the first item in shuffled arrays
       membersArrayShuffled.splice(0, 1);
     }
-    return openModal();
+    return openModal(membersArray);
   }
 
   // https://git.daplie.com/Daplie/knuth-shuffle
