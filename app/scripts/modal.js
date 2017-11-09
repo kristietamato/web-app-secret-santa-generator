@@ -2,11 +2,7 @@ $(document).ready(function() {
   $('#my-modal').load('modal.html');
 });
 
-function openModal (membersArray) {
-  var members = [];
-  members = membersArray;
-  JSON.stringify(members);
-
+function openModal () {
   // Get the modal
   var modal = document.getElementById('my-modal');
   // Open the modal 
@@ -26,9 +22,4 @@ function openModal (membersArray) {
           modal.style.display = "none";
       }
   }
-  console.log(members);
-}
-
-function emailMembers () {
-  alert('elail members');
 }
