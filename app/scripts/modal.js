@@ -23,7 +23,3 @@ function openModal () {
       }
   }
 }
-
-function emailMembers () {
-  alert('elail members');
-}
