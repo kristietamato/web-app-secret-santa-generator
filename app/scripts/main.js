@@ -163,7 +163,7 @@
       // Pop the first item in shuffled arrays
       membersArrayShuffled.splice(0, 1);
     }
-    sendDataToServer();
+    sendDataToServer(membersArray);
     return openModal();
   }
 
@@ -193,12 +193,17 @@
     input[index1] = temp;
   }
 
-  function sendDataToServer () {
+  function sendDataToServer (membersArray) {
+    var membersJSON = JSON.stringify(membersArray);
     $.ajax({
       type: 'POST',
       url: 'email-members.php',
+      dataType: 'json',
       data: {
-        'membersArray': membersList.members
+        membersList: membersJSON
+      },
+      success: function (data) {
+        console.log(data);
       }
     });
   }
