@@ -163,8 +163,7 @@
       // Pop the first item in shuffled arrays
       membersArrayShuffled.splice(0, 1);
     }
-    sendDataToServer(membersArray);
-    return openModal();
+    return sendDataToServer(membersArray);
   }
 
   // https://git.daplie.com/Daplie/knuth-shuffle
@@ -202,8 +201,8 @@
       data: {
         membersList: membersJSON
       },
-      success: function (data) {
-        console.log(data);
+      success: function () {
+        openModal();
       }
     });
   }
