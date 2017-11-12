@@ -1,5 +1,5 @@
-jQuery(document).ready(function() {
-  jQuery('#my-modal').load('modal.html');
+$(document).ready(function () {
+  $('#my-modal').load('modal.html');
 });
 
 function openModal() {

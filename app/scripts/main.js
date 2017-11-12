@@ -168,11 +168,12 @@
 
   // https://git.daplie.com/Daplie/knuth-shuffle
   function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length;
+    var temporaryValue;
+    var randomIndex;
 
     // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
+    while (currentIndex !== 0) {
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
@@ -194,7 +195,7 @@
 
   function sendDataToServer(membersArray) {
     var membersJSON = JSON.stringify(membersArray);
-    jQuery.ajax({
+    $.ajax({
       type: 'POST',
       url: 'email-members.php',
       dataType: 'json',
