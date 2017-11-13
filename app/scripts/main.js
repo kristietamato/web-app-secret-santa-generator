@@ -73,12 +73,11 @@
   // Manage the Secret Santa list
   var membersList = {
     members: [],
-    addMember: function(name, email, index, secretSantaIndex) {
+    addMember: function(name, email, secretSanta) {
       this.members.push({
         memberName: name,
         memberEmail: email,
-        memberIndex: index,
-        memberSecretSantaIndex: secretSantaIndex
+        memberSecretSanta: secretSanta
       });
     },
     deleteMember: function(index) {
@@ -141,28 +140,26 @@
     var membersArrayCopy = membersArray.slice();
     var membersArrayShuffled;
 
-    for (var count = 0; count < totalMembers; count++) {
-      membersArray[count].memberIndex = count;
-    }
-
     membersArrayShuffled = shuffle(membersArrayCopy);
 
     // Assign 2 indexes to each member till all members are assigned
-    for (var count2 = 0; count2 < totalMembers; count2++) {
+    for (var count = 0; count < totalMembers; count++) {
       // Members can't be their own secret santa
-      if (membersArray[count2].memberIndex === membersArrayShuffled[0].memberIndex) {
-        if (membersArray[count2].memberIndex === (totalMembers - 1)) {
+      if (membersArray[count].memberName === membersArrayShuffled[0].memberName) {
+        // If it's the last item in the members array
+        if (count === (totalMembers - 1)) {
           return alert('Error: please draw again');
         } else {
           // Swap first 2 members of shuffled array
           swap(membersArrayShuffled, 0, 1);
         }
       }
-      // Set member secret santa and giftee indexes
-      membersArray[count2].memberSecretSantaIndex = membersArrayShuffled[0].memberIndex;
+      // Set member secret name
+      membersArray[count].memberSecretSanta = membersArrayShuffled[0].memberName;
       // Pop the first item in shuffled arrays
       membersArrayShuffled.splice(0, 1);
     }
+    console.log(membersArray);
     return sendDataToServer(membersArray);
   }
 
