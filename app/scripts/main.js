@@ -159,8 +159,7 @@
       // Pop the first item in shuffled arrays
       membersArrayShuffled.splice(0, 1);
     }
-    sendDataToServer(membersArray);
-    return openModal();
+    return openModal(membersArray);
   }
 
   // https://git.daplie.com/Daplie/knuth-shuffle
@@ -188,21 +187,6 @@
 
     input[index0] = input[index1];
     input[index1] = temp;
-  }
-
-  function sendDataToServer(membersArray) {
-    var membersJSON = JSON.stringify(membersArray);
-    $.ajax({
-      type: 'POST',
-      url: 'email-members.php',
-      dataType: 'json',
-      data: {
-        membersList: membersJSON
-      },
-      success: function() {
-        console.log(membersArray);
-      }
-    });
   }
 
   document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
