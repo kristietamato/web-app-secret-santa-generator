@@ -142,6 +142,11 @@
 
     membersArrayShuffled = shuffle(membersArrayCopy);
 
+    if(totalMembers === 0) {
+      alert('Please add a member');
+      return;
+    }
+
     // Assign 2 indexes to each member till all members are assigned
     for (var count = 0; count < totalMembers; count++) {
       // Members can't be their own secret santa

@@ -34,9 +34,6 @@ function sendDataToServer(membersArray) {
     dataType: 'json',
     data: {
       membersList: membersJSON
-    },
-    success: function() {
-      console.log(membersArray);
     }
   });
 }
