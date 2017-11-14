@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
   $('#my-modal').load('modal.html');
 });
 
-function openModal() {
+function openModal(membersArray) {
   // Get the modal
   var modal = document.getElementById('my-modal');
   // Open the modal 
@@ -22,4 +22,18 @@ function openModal() {
       modal.style.display = 'none';
     }
   };
+
+  document.getElementById('email-all-members').addEventListener('click', sendDataToServer(membersArray));
+}
+
+function sendDataToServer(membersArray) {
+  var membersJSON = JSON.stringify(membersArray);
+  $.ajax({
+    type: 'POST',
+    url: 'email-members.php',
+    dataType: 'json',
+    data: {
+      membersList: membersJSON
+    }
+  });
 }
