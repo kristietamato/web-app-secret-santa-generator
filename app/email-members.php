@@ -1,6 +1,8 @@
 <?php
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $subject = 'Message from Tamato.org - Secret Santa Generator';
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
     if(!empty($_POST['group-name']))
     {
       $group_name = trim_input($_POST['group-name']);
@@ -29,14 +31,20 @@
 
       foreach($members_list as $member) {
         $member_name = trim_input($member->memberName);
-        $member_email = 'kristietamato@gmail.com';
+        //$to = trim_input($member->memberEmail);
+        $to = 'kristietamato@gmail.com';
         $secret_santa_for = trim_input($member->memberSecretSanta);
-        $from = 'Tamato.org - Secret Santa Generator';
-        $body = 'Hello, ' . $member_name . ', you are the Secret Santa for... ' . $secret_santa_for . '\nMore information: \n' . $message;
-        mail($member_email, $subject, $body, $from);
-        error_log("member_email = " . $member_email);
-        error_log("subject = " . $subject);
-        error_log("body = " . $body);
+        $message = '<html><body>';
+        $message .= '<img src="//css-tricks.com/examples/WebsiteChangeRequestForm/images/wcrf-header.png" alt="Website Change Request" />';
+        $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+        $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . trim_input($member_name) . "</td></tr>";
+        $message .= "<tr><td><strong>Email:</strong> </td><td>" . trim_input($to) . "</td></tr>";
+        $message .= "<tr><td><strong>Type of Change:</strong> </td><td>" . trim_input($secret_santa_for) . "</td></tr>";
+        $message .= "<tr><td><strong>Urgency:</strong> </td><td>" . trim_input($budget) . "</td></tr>";
+        $message .= "<tr><td><strong>NEW Content:</strong> </td><td>" . htmlentities($budget) . "</td></tr>";
+        $message .= "</table>";
+        $message .= "</body></html>";
+        mail($to, $subject, $message, $headers);
       }
     }
   }
@@ -46,5 +54,18 @@
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
+  }
+
+  function setMessage($member_name, $to, $secret_santa_for, $budget) {
+    $message = '<html><body>';
+    $message .= '<img src="//css-tricks.com/examples/WebsiteChangeRequestForm/images/wcrf-header.png" alt="Website Change Request" />';
+    $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+    $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . trim_input($member_name) . "</td></tr>";
+    $message .= "<tr><td><strong>Email:</strong> </td><td>" . trim_input($to) . "</td></tr>";
+    $message .= "<tr><td><strong>Type of Change:</strong> </td><td>" . trim_input($secret_santa_for) . "</td></tr>";
+    $message .= "<tr><td><strong>Urgency:</strong> </td><td>" . trim_input($budget) . "</td></tr>";
+    $message .= "<tr><td><strong>NEW Content:</strong> </td><td>" . htmlentities($budget) . "</td></tr>";
+    $message .= "</table>";
+    $message .= "</body></html>";
   }
 ?>
