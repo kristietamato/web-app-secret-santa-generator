@@ -34,17 +34,9 @@
         //$to = trim_input($member->memberEmail);
         $to = 'kristietamato@gmail.com';
         $secret_santa_for = trim_input($member->memberSecretSanta);
-        $message = '<html><body>';
-        $message .= '<img src="//css-tricks.com/examples/WebsiteChangeRequestForm/images/wcrf-header.png" alt="Website Change Request" />';
-        $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
-        $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . trim_input($member_name) . "</td></tr>";
-        $message .= "<tr><td><strong>Email:</strong> </td><td>" . trim_input($to) . "</td></tr>";
-        $message .= "<tr><td><strong>Type of Change:</strong> </td><td>" . trim_input($secret_santa_for) . "</td></tr>";
-        $message .= "<tr><td><strong>Urgency:</strong> </td><td>" . trim_input($budget) . "</td></tr>";
-        $message .= "<tr><td><strong>NEW Content:</strong> </td><td>" . htmlentities($budget) . "</td></tr>";
-        $message .= "</table>";
-        $message .= "</body></html>";
-        mail($to, $subject, $message, $headers);
+        $message = new Message();
+        $message->setMessage($member_name, $to, $secret_santa_for, $budget);
+        mail($to, $subject, $message->getMessage(), $headers);
       }
     }
   }
@@ -56,16 +48,24 @@
     return $data;
   }
 
-  function setMessage($member_name, $to, $secret_santa_for, $budget) {
-    $message = '<html><body>';
-    $message .= '<img src="//css-tricks.com/examples/WebsiteChangeRequestForm/images/wcrf-header.png" alt="Website Change Request" />';
-    $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
-    $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . trim_input($member_name) . "</td></tr>";
-    $message .= "<tr><td><strong>Email:</strong> </td><td>" . trim_input($to) . "</td></tr>";
-    $message .= "<tr><td><strong>Type of Change:</strong> </td><td>" . trim_input($secret_santa_for) . "</td></tr>";
-    $message .= "<tr><td><strong>Urgency:</strong> </td><td>" . trim_input($budget) . "</td></tr>";
-    $message .= "<tr><td><strong>NEW Content:</strong> </td><td>" . htmlentities($budget) . "</td></tr>";
-    $message .= "</table>";
-    $message .= "</body></html>";
+  class Message {
+    private $message;
+    public function setMessage($member_name, $to, $secret_santa_for, $budget) {
+      $message = '<html><body>';
+      $message .= '<img src="secretsanta.tamato.org/images/secret-santa.jpg />';
+      $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+      $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . $member_name . "</td></tr>";
+      $message .= "<tr><td><strong>Email:</strong> </td><td>" . $to . "</td></tr>";
+      $message .= "<tr><td><strong>Type of Change:</strong> </td><td>" . $secret_santa_for . "</td></tr>";
+      $message .= "<tr><td><strong>Urgency:</strong> </td><td>" . $budget . "</td></tr>";
+      $message .= "<tr><td><strong>NEW Content:</strong> </td><td>" . $budget . "</td></tr>";
+      $message .= "</table>";
+      $message .= "</body></html>";
+
+      $this->message = $message;
+    }
+    public function getMessage() {
+      return $this->message;
+    }
   }
 ?>
