@@ -1,8 +1,9 @@
 <?php
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $subject = 'Message from Tamato.org - Secret Santa Generator';
+    $subject = 'Secret Santa Generator - Tamato.org';
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    $headers .= 'From: <noreply@tamato.org>' . "\r\n";
     if(!empty($_POST['group-name']))
     {
       $group_name = trim_input($_POST['group-name']);
@@ -17,13 +18,15 @@
     }
     if(!empty($_POST['exchange-date']))
     {
-      $exchange_date = trim_input($_POST['exchange-date']);
+      $exchange_date = $_POST['exchange-date'];
+    } else {
+      $exchange_date = '';
     }
     if(!empty($_POST['message']))
     {
       $message = trim_input($_POST['email-message']);
     } else {
-      $message = 'default message';
+      $message = '';
     }
     if(!empty($_POST['membersList']))
     {
@@ -34,9 +37,9 @@
         //$to = trim_input($member->memberEmail);
         $to = 'kristietamato@gmail.com';
         $secret_santa_for = trim_input($member->memberSecretSanta);
-        $message = new Message();
-        $message->setMessage($member_name, $to, $secret_santa_for, $budget);
-        mail($to, $subject, $message->getMessage(), $headers);
+        $body = new Body();
+        $body->setBody($member_name, $secret_santa_for, $group_name, $budget, $exchange_date, $message);
+        mail($to, $subject, $body->getBody(), $headers);
       }
     }
   }
@@ -48,24 +51,33 @@
     return $data;
   }
 
-  class Message {
-    private $message;
-    public function setMessage($member_name, $to, $secret_santa_for, $budget) {
-      $message = '<html><body>';
-      $message .= '<img src="secretsanta.tamato.org/images/secret-santa.jpg />';
-      $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
-      $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . $member_name . "</td></tr>";
-      $message .= "<tr><td><strong>Email:</strong> </td><td>" . $to . "</td></tr>";
-      $message .= "<tr><td><strong>Type of Change:</strong> </td><td>" . $secret_santa_for . "</td></tr>";
-      $message .= "<tr><td><strong>Urgency:</strong> </td><td>" . $budget . "</td></tr>";
-      $message .= "<tr><td><strong>NEW Content:</strong> </td><td>" . $budget . "</td></tr>";
-      $message .= "</table>";
-      $message .= "</body></html>";
+  class Body {
+    private $body;
+    public function setBody($memberName, $secretSantaFor, $groupName, $budget, $exchangeDate, $message) {
+      $body = '
+      <html>
+        <body>
+          <center>
+            <img src="http://secretsanta.tamato.org/images/secret-santa.jpg" />
+            <h2>Hello ' . $memberName . '!</h2>
+            <h3>You are the Secret Santa for... <font style="color: red;">' . strtoupper($secretSantaFor) . '</font></h3>
+            <table style="border-color: #666; width: 400px;" cellpadding="15">
+            <tr style="background: #eee;"><td><strong>Group name</strong> </td><td>' . $groupName . '</td></tr>
+            <tr style="background: #eee;"><td><strong>Gift exchange date</strong> </td><td>' . $exchangeDate . '</td></tr>
+            <tr style="background: #eee;"><td><strong>Budget</strong> </td><td>$' . $budget . '</td></tr>
+            <tr style="background: #eee;"><td><strong>Message</strong> </td><td>' . $message . '</td></tr>
+            </table>
+            <h3>Happy gifting, ' . $memberName . '!</h3>
+            <p style="padding-top: 15px;">Please do not reply to this email. Thank you.</p>
+          </center>
+        </body>
+      </html>
+      ';
 
-      $this->message = $message;
+      $this->body = $body;
     }
-    public function getMessage() {
-      return $this->message;
+    public function getBody() {
+      return $this->body;
     }
   }
 ?>
