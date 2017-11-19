@@ -1083,12 +1083,12 @@ button.close {
 .entry-thumb {
     display: block;
     position: relative;
-    background-color: #000
 }
 .entry-thumb img {
     min-width: 100%;
     -webkit-transition: opacity 0.75s ease;
-    transition: opacity 0.75s ease
+    transition: opacity 0.75s ease;
+    border-radius: 4px 4px 0 0;
 }
 .entry-thumb:before {
     content: "\f0c1";
