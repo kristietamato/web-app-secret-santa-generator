@@ -7,9 +7,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Secret Santa Generator</title>
+
+	<!-- My styles -->
+	<link rel="stylesheet" href="styles/main.css">
 	<link rel='stylesheet' href='/styles/one-theme.css'
 	 type='text/css' media='all' />
 	<link rel='stylesheet' href='/styles/style.css' />
+
 	<link href="https://fonts.googleapis.com/css?family=The+Girl+Next+Door" rel="stylesheet" />
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 </head>
@@ -168,18 +172,18 @@
 									<p>Name (required)
 										<br>
 										<span class="your-name">
-											<input type="text" name="your-name" value="" size="40"
-											 aria-required="true" aria-invalid="false">
+											<input type="text" id="input-name" name="input-name" value="" size="40"
+											 aria-required="true" aria-invalid="false" required>
 										</span>
 									</p>
 									<p>Email (required)
 										<br>
 										<span class="your-email">
-											<input type="email" name="your-email" value="" size="40"
-											 aria-required="true" aria-invalid="false">
+											<input type="email" id="input-email" name="input-email" value="" size="40"
+											 aria-required="true" aria-invalid="false" required>
 										</span>
 									</p>
-									<p>Subject
+									<p>Group name
 										<br>
 										<span class="your-subject">
 											<input type="text" name="your-subject" value="" size="40" aria-invalid="false">
@@ -191,16 +195,35 @@
 											<textarea name="your-message" cols="40" rows="10" aria-invalid="false"></textarea>
 										</span>
 									</p>
-									<p>
-										<input type="submit" value="Send">
-										<img class="ajax-loader" src="/images/ajax-loader.gif"
-										 alt="Sending ..." style="visibility: hidden;" />
-									</p>
 								</form>
+								<p>
+									<input type="submit" value="Add" id="add-member-btn" />
+									<img class="ajax-loader" src="/images/ajax-loader.gif"
+									 alt="Sending ..." style="visibility: hidden;" />
+								</p>
 							</div>
 						</div>
+						<div class="widget">
+							<h3 class="h3">Members list [ <span id="members-count"></span> ]</h3>
+							<ol id="members-list">
+							</ol>
+						</div>
+						<button id="draw-secret-santas" type="submit">Draw Secret Santas</button>
 					</div>
 				</article>
+				<article class="page type-page hentry no-post-thumbnail">
+						<div class="entry-wrap">
+							<header class="entry-header">
+								<h1 class="entry-title">Send email</span></h1>
+							</header>
+							<div class="entry-content content">
+								<div role="form">
+									<div class="screen-reader-response"></div>
+									<div id="my-modal" class="modal"></div>
+								</div>
+							</div>
+						</div>
+					</article>
 			</div>
 
 		</div>
@@ -255,6 +278,8 @@
 	<script type='text/javascript' src='/scripts/one-header.min.js'></script>
 	<script type='text/javascript' src='/scripts/one-body.min.js'></script>
 	<script type='text/javascript' src='/scripts/one-bg.min.js'></script>
+	<script src="/scripts/modal.js"></script>
+	<script src="/scripts/main.js"></script>
 
 	<script>jQuery.backstretch(['/images/snow-bg.jpg'], { fade: 750 });</script>
 </body>

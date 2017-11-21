@@ -90,13 +90,10 @@
   var view = {
     displayMembers: function() {
       var htmlToAdd = '';
-      var htmlCircle = '<div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">';
-      htmlCircle += '<div class="section__circle-container__circle delete"></div></div>';
-      var htmlStartDiv = '<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">';
       for (var count = 0; count < membersList.members.length; count++) {
         var member = membersList.members[count];
-        htmlToAdd += htmlCircle + htmlStartDiv + '<h5>' + member.memberName
-          + '</h5>' + member.memberEmail + '</div>';
+        htmlToAdd += '<li>' + member.memberName
+          + ' - ' + member.memberEmail + ' <i class="fa fa-trash delete"></i></li>';
       }
       document.getElementById('members-list').innerHTML = htmlToAdd;
 
