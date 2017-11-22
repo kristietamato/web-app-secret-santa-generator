@@ -1,7 +1,3 @@
-$(document).ready(function() {
-  $('#send-email').load('send-email.html');
-});
-
 function openModal(membersArray) {
   // Get the modal
   var modal = document.getElementById('my-modal');

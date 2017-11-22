@@ -3,6 +3,7 @@
 <!--[if gt IE 9]><!-->
 <html class="no-js" lang="en-US">
 <!--<![endif]-->
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,7 @@
 
 	<!-- My styles -->
 	<link rel="stylesheet" href="styles/main.css">
-	<link rel='stylesheet' href='/styles/one-theme.css'
-	 type='text/css' media='all' />
+	<link rel='stylesheet' href='/styles/one-theme.css' type='text/css' media='all' />
 	<link rel='stylesheet' href='/styles/style.css' />
 
 	<link href="https://fonts.googleapis.com/css?family=The+Girl+Next+Door" rel="stylesheet" />
@@ -113,156 +113,30 @@
 		<div class="container max width offset">
 			<div class="one-main full" role="main">
 
-				<article class="format-quote">
-					<div class="entry-thumb">
-						<img src="/images/santa.png" alt="" />
-					</div>
-					<div class="entry-wrap">
-						<header class="entry-header">
-							<div class="one-hgroup">
-								<h2 class="entry-title">
-									<a href="">Christmas is the spirit of giving without a thought of getting.</a>
-								</h2>
-								<cite class="entry-title-sub">Thomas S. Monson</cite>
-							</div>
-						</header>
-					</div>
+				<article id="article-filler" class="format-quote"></article>
 
-				</article>
-				<article class="format-standard hentry">
-					<div class="entry-thumb" >
-						<img src="images/3-steps.png" alt="" />
-					</div>
-					<div class="entry-wrap">
+				<article id="article-easy-steps" class="format-standard hentry"></article>
 
-						<header class="entry-header">
-							<h2 class="entry-title">
-								<a href="">3 Easy Steps</a>
-							</h2>
-						</header>
+				<article id="article-add-members" class="page type-page hentry no-post-thumbnail"></article>
 
-						<div class="entry-content">
-							<p>Enter the names and email addresses of everyone involved for the gift exchange and click on "Draw". After the drawings are completed, you can "Email All" to inform all members who they have. You can also email to individual members next to his/her name.</p>
-							<div>
-								<a href="" class="more-link">Start</a>
-							</div>
-
-						</div>
-
-					</div>
-
-				</article>
-				<article class="page type-page hentry no-post-thumbnail">
-					<div class="entry-wrap">
-						<header class="entry-header">
-							<h1 class="entry-title">Add member</h1>
-						</header>
-						<div class="entry-content content">
-							<p>Add a member to the Secret Santa group. Remember to add yourself!</p>
-							<div role="form">
-								<div class="screen-reader-response"></div>
-								<form>
-									<p>Name (required)
-										<br>
-										<span class="your-name">
-											<input type="text" id="input-name" name="input-name" value="" size="40"
-											 aria-required="true" aria-invalid="false" required>
-										</span>
-									</p>
-									<p>Email (required)
-										<br>
-										<span class="your-email">
-											<input type="email" id="input-email" name="input-email" value="" size="40"
-											 aria-required="true" aria-invalid="false" required>
-										</span>
-									</p>
-								</form>
-								<p>
-									<input type="submit" value="Add" id="add-member-btn" />
-									<img class="ajax-loader" src="/images/ajax-loader.gif"
-									 alt="Sending ..." style="visibility: hidden;" />
-								</p>
-							</div>
-						</div>
-						<div class="widget">
-							<h3 class="h3">Members list [ <span id="members-count"></span> ]</h3>
-							<ol id="members-list">
-							</ol>
-						</div>
-						<button id="draw-secret-santas" type="submit">Draw Secret Santas</button>
-					</div>
-				</article>
-				<article class="page type-page hentry no-post-thumbnail">
-						<div class="entry-wrap">
-							<header class="entry-header">
-								<h1 class="entry-title">Send email</span></h1>
-							</header>
-							<div class="entry-content content">
-								<div role="form">
-									<div class="screen-reader-response"></div>
-									<div id="send-email" class="send-email"></div>
-								</div>
-							</div>
-						</div>
-					</article>
+				<article id="article-send-email" class="page type-page hentry no-post-thumbnail"></article>
 			</div>
-
 		</div>
 
-		<footer class="one-colophon top">
-			<div class="container max width">
-
-				<div class="one-column">
-					<div class="widget">
-						<h4 class="h-widget">About</h4>
-						<div class="textwidget">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Senectus et netus et malesuada fames.</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-		<footer class="one-colophon bottom">
-			<div class="container max width">
-
-
-				<ul id="menu-footer" class="one-nav">
-					<li class="menu-item">
-						<a href="">About</a>
-					</li>
-					<l class="menu-item">
-						<a href="">Contact</a>
-					</li>
-				</ul>
-				<div class="one-social-global">
-					<a href="" class="facebook" title="Facebook" target="_blank">
-						<i class="fa fa-facebook-square" aria-hidden="true"></i>
-					</a>
-					<a href="" class="twitter" title="Twitter" target="_blank">
-						<i class="fa fa-twitter-square" aria-hidden="true"></i>
-					</a>
-					<a href="" class="pinterest" title="Pinterest" target="_blank">
-						<i class="fa fa-pinterest-square" aria-hidden="true"></i>
-					</a>
-				</div>
-				<div class="one-colophon-content">
-					<p style="letter-spacing: 2px; text-transform: uppercase;">Powered By 
-						<a href="//www.tamato.org" title="Tamato">Tamato</a>
-					</p>
-				</div>
-			</div>
-		</footer>
+		<footer id="footer-about" class="one-colophon top"></footer>
+		<footer id="footer-contact" class="one-colophon bottom"></footer>
 
 	</div>
 	<!-- END #top.site -->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script>
+	 crossorigin="anonymous"></script>
 	<script type='text/javascript' src='/scripts/one-header.min.js'></script>
 	<script type='text/javascript' src='/scripts/one-body.min.js'></script>
 	<script type='text/javascript' src='/scripts/one-bg.min.js'></script>
 	<script src="/scripts/modal.js"></script>
 	<script src="/scripts/main.js"></script>
-
 	<script>jQuery.backstretch(['/images/snow-bg.jpg'], { fade: 750 });</script>
+	<script src="/scripts/loadHTML.js"></script>
 </body>
 
 </html>
