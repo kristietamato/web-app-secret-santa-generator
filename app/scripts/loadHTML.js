@@ -7,10 +7,6 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#article-add-members').load('/partials/article-add-members.html');
-});
-
-$(document).ready(function() {
   $('#article-send-email').load('/partials/article-send-email.html');
 });
 
