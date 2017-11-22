@@ -92,7 +92,7 @@
       // Pop the first item in shuffled arrays
       membersArrayShuffled.splice(0, 1);
     }
-    return openModal(membersArray);
+    return showSendEmail(membersArray);
   }
 
   // https://git.daplie.com/Daplie/knuth-shuffle
@@ -122,7 +122,7 @@
     input[index1] = temp;
   }
 
+  view.displayMembers();
   document.getElementById('add-member-btn').addEventListener('click', handlers.addMember);
   document.getElementById('draw-secret-santas').addEventListener('click', drawSecretSantas);
-  view.displayMembers();
 })();

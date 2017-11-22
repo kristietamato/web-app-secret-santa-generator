@@ -1,4 +1,4 @@
-function openModal(membersArray) {
+function showSendEmail(membersArray) {
   // Get the modal
   var modal = document.getElementById('my-modal');
   // Open the modal 
