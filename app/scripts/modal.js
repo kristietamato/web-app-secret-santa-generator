@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#my-modal').load('modal.html');
+  $('#send-email').load('send-email.html');
 });
 
 function openModal(membersArray) {

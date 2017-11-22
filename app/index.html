@@ -161,14 +161,7 @@
 							<p>Add a member to the Secret Santa group. Remember to add yourself!</p>
 							<div role="form">
 								<div class="screen-reader-response"></div>
-								<form action="" method="post" novalidate="novalidate">
-									<div style="display: none;">
-										<input type="hidden">
-										<input type="hidden">
-										<input type="hidden">
-										<input type="hidden">
-										<input type="hidden">
-									</div>
+								<form>
 									<p>Name (required)
 										<br>
 										<span class="your-name">
@@ -181,18 +174,6 @@
 										<span class="your-email">
 											<input type="email" id="input-email" name="input-email" value="" size="40"
 											 aria-required="true" aria-invalid="false" required>
-										</span>
-									</p>
-									<p>Group name
-										<br>
-										<span class="your-subject">
-											<input type="text" name="your-subject" value="" size="40" aria-invalid="false">
-										</span>
-									</p>
-									<p>Your Message
-										<br>
-										<span class="your-message">
-											<textarea name="your-message" cols="40" rows="10" aria-invalid="false"></textarea>
 										</span>
 									</p>
 								</form>
@@ -219,7 +200,7 @@
 							<div class="entry-content content">
 								<div role="form">
 									<div class="screen-reader-response"></div>
-									<div id="my-modal" class="modal"></div>
+									<div id="send-email" class="send-email"></div>
 								</div>
 							</div>
 						</div>
