@@ -1,7 +1,3 @@
-$(document).ready(function() {
-  $('#my-modal').load('modal.html');
-});
-
 function openModal(membersArray) {
   // Get the modal
   var modal = document.getElementById('my-modal');

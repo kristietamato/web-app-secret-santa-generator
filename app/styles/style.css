@@ -1,0 +1,341 @@
+a,
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover,
+.widget ul li a:hover,
+.widget ol li a:hover,
+.widget.widget_text ul li a,
+.widget.widget_text ol li a,
+.widget_nav_menu .current-menu-item>a {
+  color: #ba0b56;
+}
+
+a:hover,
+.widget.widget_text ul li a:hover,
+.widget.widget_text ol li a:hover {
+  color: #d80d65;
+}
+
+.one-nav-tabs>.active>a,
+.one-nav-tabs>.active>a:hover {
+  box-shadow: inset 0 3px 0 0 #ba0b56;
+}
+
+.one-main {
+  width: 67.536945%;
+}
+
+.one-navbar .desktop .one-nav>li>a,
+.one-navbar .desktop .sub-menu a,
+.one-navbar .mobile .one-nav li>a {
+  color: #cecece;
+}
+
+.one-navbar .desktop .one-nav>li>a:hover,
+.one-navbar .desktop .one-nav>.current-menu-item>a,
+.one-navbar .desktop .sub-menu a:hover,
+.one-navbar .desktop .sub-menu .current-menu-item>a,
+.one-navbar .mobile .one-nav li>a:hover,
+.one-navbar .mobile .one-nav .current-menu-item>a {
+  color: #272727;
+}
+
+.one-navbar .desktop .one-nav>li>a:hover,
+.one-navbar .desktop .one-nav>.current-menu-item>a {
+  box-shadow: inset 0 4px 0 0 #ba0b56;
+}
+
+.one-navbar .desktop .one-nav>li>a {
+  height: 46px;
+  padding-top: 18px;
+}
+
+.one-navbar-fixed-top-active .one-navbar-wrap {
+  margin-bottom: 1px;
+}
+
+.one-navbar .desktop .one-nav>li ul {
+  top: 31px;
+  ;
+}
+
+.p-landmark-sub,
+.p-meta,
+input,
+button,
+select,
+textarea {
+  font-family: 'The Girl Next Door', cursive;
+}
+
+.widget ul li a,
+.widget ol li a {
+  color: #444444;
+}
+
+.widget_text ol li a,
+.widget_text ul li a {
+  color: #ba0b56;
+}
+
+.widget_text ol li a:hover,
+.widget_text ul li a:hover {
+  color: #d80d65;
+}
+
+.comment-form-author label,
+.comment-form-email label,
+.comment-form-url label,
+.comment-form-rating label,
+.comment-form-comment label,
+.widget_calendar #wp-calendar th,
+.p-landmark-sub strong,
+.widget_tag_cloud .tagcloud a:hover,
+.widget_tag_cloud .tagcloud a:active,
+.entry-footer a:hover,
+.entry-footer a:active {
+  color: #494949;
+}
+
+@media (max-width:979px) {
+  .one-navbar-fixed-top-active .one-navbar-wrap {
+    margin-bottom: 0;
+  }
+}
+
+body {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: #444444;
+  background: #ffffff url() center top repeat;
+}
+
+a:focus,
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="submit"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted #333;
+  outline: 5px auto #ba0b56;
+  outline-offset: -1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1,
+.h1 {
+  letter-spacing: -0.031em;
+}
+
+h2,
+.h2 {
+  letter-spacing: -0.044em;
+}
+
+h3,
+.h3 {
+  letter-spacing: -0.055em;
+}
+
+h4,
+.h4 {
+  letter-spacing: -0.073em;
+}
+
+h5,
+.h5 {
+  letter-spacing: -0.083em;
+}
+
+h6,
+.h6 {
+  letter-spacing: -0.125em;
+}
+
+.w-h {
+  font-weight: 400 !important;
+}
+
+.container.width {
+  width: 90%;
+}
+
+.container.max {
+  max-width: 620px;
+}
+
+.one-main.full {
+  float: none;
+  display: block;
+  width: auto;
+}
+
+@media (max-width:979px) {
+  .one-main.full,
+  .one-main.left,
+  .one-main.right {
+    float: none;
+    display: block;
+    width: auto !important;
+  }
+}
+
+.entry-header,
+.entry-content {
+  font-size: 18px;
+}
+
+body,
+input,
+button,
+select,
+textarea {
+  font-family: "The Girl Next Door", cursive;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+.h1 a,
+.h2 a,
+.h3 a,
+.h4 a,
+.h5 a,
+.h6 a,
+blockquote {
+  color: #494949;
+}
+
+.cfc-h-tx {
+  color: #494949 !important;
+}
+
+.cfc-h-bd {
+  border-color: #494949 !important;
+}
+
+.cfc-h-bg {
+  background-color: #494949 !important;
+}
+
+.cfc-b-tx {
+  color: #444444 !important;
+}
+
+.cfc-b-bd {
+  border-color: #444444 !important;
+}
+
+.cfc-b-bg {
+  background-color: #444444 !important;
+}
+
+body.one-navbar-fixed-top-active .one-navbar-wrap {
+  height: 46px;
+}
+
+.one-navbar-inner {
+  min-height: 46px;
+}
+
+.one-brand {
+  margin-top: 9px;
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.042em;
+  color: #272727;
+}
+
+.one-brand:hover,
+.one-brand:focus {
+  color: #272727;
+}
+
+.one-navbar .one-nav-wrap .one-nav>li>a {
+  font-family: "The Girl Next Door", cursive;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.125em;
+}
+
+.one-navbar .desktop .one-nav>li>a {
+  font-size: 16px;
+}
+
+.one-navbar .desktop .one-nav>li>a:not(.one-btn-navbar-woocommerce) {
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
+.one-navbar .desktop .one-nav>li>a>span {
+  margin-right: -0.125em;
+}
+
+.one-btn-navbar {
+  margin-top: 9px;
+}
+
+.one-btn-navbar,
+.one-btn-navbar.collapsed {
+  font-size: 14px;
+}
+
+@media (max-width:979px) {
+  body.one-navbar-fixed-top-active .one-navbar-wrap {
+    height: auto;
+  }
+}
+
+.button,
+[type="submit"] {
+  color: #ff91b4;
+  border-color: #ba0b56;
+  background-color: #ba0b56;
+  text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.5);
+  border-radius: 0.25em;
+}
+
+.button:hover,
+[type="submit"]:hover {
+  color: #ffffff;
+  border-color: #ba0b56;
+  background-color: #ba0b56;
+  text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,42 @@
+<?php
+include 'email-members.php';
+?>
+
+<div class="entry-wrap">
+  <header class="entry-header">
+    <h1 class="entry-title">Send Email</span>
+    </h1>
+  </header>
+  <div class="entry-content content">
+    <div role="form">
+      <div class="screen-reader-response"></div>
+      <form method="post" action="email-members.php" novalidate="novalidate">
+        <p>Group name
+          <br>
+          <span class="your-name">
+            <input type="text" id="group-name" name="group-name" value="" size="40" aria-required="true" aria-invalid="false">
+          </span>
+        </p>
+        <p>Budget
+          <br>
+          <span class="your-email">
+            <input type="email" id="budget" name="budget" placeholder="$" value="" size="40" aria-required="true" aria-invalid="false">
+          </span>
+        </p>
+        <p>Date of gift exchange
+          <br>
+          <span class="your-subject">
+            <input type="date" id="exchange-date" name="exchange-date" value="" size="40" aria-invalid="false">
+          </span>
+        </p>
+        <p>Message
+          <br>
+          <span class="your-message">
+            <textarea type="text" cols="40" rows="10" id="email-message" name="email-message" aria-invalid="false"></textarea>
+          </span>
+        </p>
+        <button class="mdl-button btn btn-primary float-left" id="email-all-members" name="email-all-members" type="submit">Email All Members</button>
+      </form>
+    </div>
+  </div>
+</div>
