@@ -343,3 +343,8 @@ body.one-navbar-fixed-top-active .one-navbar-wrap {
 #article-send-email {
   display: none;
 }
+
+footer {
+  background: url(../images/santa-footer-2.png) no-repeat 90% 0;
+  background-position: center;
+}
