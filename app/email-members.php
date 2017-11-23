@@ -4,32 +4,27 @@
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
     $headers .= 'From: <noreply@tamato.org>' . "\r\n";
-    if(!empty($_POST['group-name']))
-    {
-      $group_name = trim_input($_POST['group-name']);
+    if(!empty($_POST['groupName'])) {
+      $group_name = trim_input($_POST['groupName']);
     } else {
       $group_name = 'Secret Santa Group';
     }
-    if(!empty($_POST['budget']))
-    {
+    if(!empty($_POST['budget'])) {
       $budget = trim_input($_POST['budget']);
     } else {
       $budget = 50;
     }
-    if(!empty($_POST['exchange-date']))
-    {
-      $exchange_date = $_POST['exchange-date'];
+    if(!empty($_POST['exchangeDate'])) {
+      $exchange_date = $_POST['exchangeDate'];
     } else {
       $exchange_date = '';
     }
-    if(!empty($_POST['message']))
-    {
-      $message = trim_input($_POST['email-message']);
+    if(!empty($_POST['message'])) {
+      $message = trim_input($_POST['message']);
     } else {
       $message = '';
     }
-    if(!empty($_POST['membersList']))
-    {
+    if(!empty($_POST['membersList'])) {
       $members_list = json_decode($_POST['membersList']);
 
       foreach($members_list as $member) {
