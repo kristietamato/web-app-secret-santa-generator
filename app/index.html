@@ -10,9 +10,8 @@
 	<title>Secret Santa Generator</title>
 
 	<!-- My styles -->
-	<link rel="stylesheet" href="styles/main.css">
-	<link rel='stylesheet' href='/styles/one-theme.css' type='text/css' media='all' />
-	<link rel='stylesheet' href='/styles/style.css' />
+	<link rel='stylesheet' href='styles/one-theme.css' type='text/css' media='all' />
+	<link rel='stylesheet' href='styles/style.css' />
 
 	<link href="https://fonts.googleapis.com/css?family=The+Girl+Next+Door" rel="stylesheet" />
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -118,41 +117,44 @@
 				<article id="article-easy-steps" class="format-standard hentry"></article>
 
 				<article class="page type-page hentry no-post-thumbnail">
-						<div class="entry-wrap">
-								<header class="entry-header">
-									<h1 class="entry-title">Add Member</h1>
-								</header>
-								<div class="entry-content content">
-									<p>Add a member to the Secret Santa group. Remember to add yourself!</p>
-									<div role="form">
-										<div class="screen-reader-response"></div>
-										<form>
-											<p>Name (required)
-												<br>
-												<span class="your-name">
-													<input type="text" id="input-name" name="input-name" value="" size="40" aria-required="true" aria-invalid="false" required>
-												</span>
-											</p>
-											<p>Email (required)
-												<br>
-												<span class="your-email">
-													<input type="email" id="input-email" name="input-email" value="" size="40" aria-required="true" aria-invalid="false" required>
-												</span>
-											</p>
-										</form>
-										<p>
-											<input type="submit" value="Add" id="add-member-btn" />
-											<img class="ajax-loader" src="/images/ajax-loader.gif" alt="Sending ..." style="visibility: hidden;" />
-										</p>
-									</div>
-								</div>
-								<h1 class="entry-title">Members List</h1>
-								<div class="entry-content content">
-									<ol id="members-list">
-									</ol>
-								</div>
-								<button id="draw-secret-santas" type="submit">Draw Secret Santas</button>
+					<div class="entry-wrap">
+						<header class="entry-header">
+							<h1 class="entry-title">Add Member</h1>
+						</header>
+						<div class="entry-content content">
+							<p>Add a member to the Secret Santa group. Remember to add yourself!</p>
+							<div role="form">
+								<div class="screen-reader-response"></div>
+								<form>
+									<p>Name (required)
+										<br>
+										<span class="your-name">
+											<input type="text" id="input-name" name="input-name" value="" size="40" aria-required="true" aria-invalid="false" required>
+										</span>
+									</p>
+									<p>Email (required)
+										<br>
+										<span class="your-email">
+											<input type="email" id="input-email" name="input-email" value="" size="40" aria-required="true" aria-invalid="false" required>
+										</span>
+									</p>
+								</form>
+								<p>
+									<input type="submit" value="Add" id="add-member-btn" />
+									<img class="ajax-loader" src="images/ajax-loader.gif" alt="Adding..." style="visibility: hidden;" />
+								</p>
 							</div>
+						</div>
+						<h1 class="entry-title">Members List</h1>
+						<div class="entry-content content">
+							<ol id="members-list">
+							</ol>
+						</div>
+						<p>
+							<input type="submit" value="Draw Secret Santas" id="draw-secret-santas" />
+							<img class="ajax-loader" src="images/ajax-loader.gif" alt="Drawing..." style="visibility: hidden;" />
+						</p>
+					</div>
 				</article>
 
 				<article id="article-send-email" class="page type-page hentry no-post-thumbnail"></article>
@@ -164,16 +166,16 @@
 
 	</div>
 	<!-- END #top.site -->
-	<script src="/scripts/workflow.js"></script>
+	<script src="scripts/workflow.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
 	 crossorigin="anonymous"></script>
-	<script type='text/javascript' src='/scripts/one-header.min.js'></script>
-	<script type='text/javascript' src='/scripts/one-body.min.js'></script>
-	<script type='text/javascript' src='/scripts/one-bg.min.js'></script>
-	<script src="/scripts/functionsLibrary.js"></script>
-	<script src="/scripts/main.js"></script>
-	<script>jQuery.backstretch(['/images/snow-bg.jpg'], { fade: 750 });</script>
-	<script src="/scripts/loadHTML.js"></script>
+	<script type='text/javascript' src='scripts/one-header.min.js'></script>
+	<script type='text/javascript' src='scripts/one-body.min.js'></script>
+	<script type='text/javascript' src='scripts/one-bg.min.js'></script>
+	<script src="scripts/functionsLibrary.js"></script>
+	<script src="scripts/main.js"></script>
+	<script>jQuery.backstretch(['images/snow-bg.jpg'], { fade: 750 });</script>
+	<script src="scripts/loadHTML.js"></script>
 </body>
 
 </html>

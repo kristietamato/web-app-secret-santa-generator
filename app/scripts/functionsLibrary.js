@@ -34,16 +34,16 @@ function drawSecretSantas() {
 }
 
 function showSendEmail(membersArray) {
-  // Get the content
+  // Show content 
   var content = document.getElementById('article-send-email');
-  // Open the content 
   content.style.display = 'block';
 
-  document.getElementById('email-all-members').addEventListener('click', sendDataToServer(membersArray, content));
+  document.getElementById('email-all-members').onclick = function() {
+    sendDataToServer(membersArray);
+  }
 }
 
-function sendDataToServer(membersArray, content) {
-  content.style.display = 'none';
+function sendDataToServer(membersArray) {
   var membersJSON = JSON.stringify(membersArray);
   $.ajax({
     type: 'POST',

@@ -29,7 +29,6 @@ var view = {
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', listener.bind(null, i));
     }
-    view.displayCount();
   },
   displayCount: function() {
     document.getElementById('members-count').innerHTML = membersList.members.length;
