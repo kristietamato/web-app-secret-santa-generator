@@ -4,38 +4,33 @@
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
     $headers .= 'From: <noreply@tamato.org>' . "\r\n";
-    if(!empty($_POST['groupName']))
-    {
+    if(!empty($_POST['groupName'])) {
       $group_name = trim_input($_POST['groupName']);
     } else {
       $group_name = 'Secret Santa Group';
     }
-    if(!empty($_POST['budget']))
-    {
+    if(!empty($_POST['budget'])) {
       $budget = trim_input($_POST['budget']);
     } else {
       $budget = 50;
     }
-    if(!empty($_POST['exchangeDate']))
-    {
+    if(!empty($_POST['exchangeDate'])) {
       $exchange_date = $_POST['exchangeDate'];
     } else {
       $exchange_date = '';
     }
-    if(!empty($_POST['message']))
-    {
+    if(!empty($_POST['message'])) {
       $message = trim_input($_POST['message']);
     } else {
       $message = '';
     }
-    if(!empty($_POST['membersList']))
-    {
+    if(!empty($_POST['membersList'])) {
       $members_list = json_decode($_POST['membersList']);
 
       foreach($members_list as $member) {
         $member_name = trim_input($member->memberName);
-        $to = trim_input($member->memberEmail);
-        // $to = 'kristietamato@gmail.com';
+        //$to = trim_input($member->memberEmail);
+        $to = 'kristietamato@gmail.com';
         $secret_santa_for = trim_input($member->memberSecretSanta);
         $body = new Body();
         $body->setBody($member_name, $secret_santa_for, $group_name, $budget, $exchange_date, $message);
