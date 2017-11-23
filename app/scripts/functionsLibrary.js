@@ -45,12 +45,21 @@ function showSendEmail(membersArray) {
 
 function sendDataToServer(membersArray) {
   var membersJSON = JSON.stringify(membersArray);
+  var groupName = document.getElementById('group-name').value;
+  var budget = document.getElementById('budget').value;
+  var exchangeDate = document.getElementById('exchange-date').value;
+  var message = document.getElementById('email-message').value;
+
   $.ajax({
     type: 'POST',
     url: 'email-members.php',
     dataType: 'json',
     data: {
-      membersList: membersJSON
+      membersList: membersJSON,
+      groupName: groupName,
+      budget: budget,
+      exchangeDate: exchangeDate,
+      message: message
     }
   });
 }
