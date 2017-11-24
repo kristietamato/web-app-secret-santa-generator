@@ -9,3 +9,4 @@ app.yaml
 .travis.yml
 manifest.webapp
 service-worker.js
+sw/
