@@ -344,7 +344,8 @@ body.one-navbar-fixed-top-active .one-navbar-wrap {
   display: none;
 }
 
-footer {
+#footer-contact {
   background: url(../images/santa-footer-2.png) no-repeat 90% 0;
   background-position: center;
+  background-color: #fff;
 }

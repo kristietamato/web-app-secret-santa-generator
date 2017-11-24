@@ -36,9 +36,9 @@
 							<nav class="one-nav-wrap desktop" role="navigation">
 								<ul id="menu-primary" class="one-nav">
 									<li class="menu-item menu-item-has-children">
-										<a href="">
+										<a href="index.html">
 											<span>Home</span>
-										</a>
+										</a><!--
 										<ul class="sub-menu">
 											<li class="menu-item">
 												<a href="">
@@ -50,15 +50,15 @@
 													<span>My group</span>
 												</a>
 											</li>
-										</ul>
+										</ul> -->
 									</li>
 									<li class="menu-item">
-										<a href="">
+										<a href="#article-add-member">
 											<span>Add member</span>
 										</a>
 									</li>
 									<li class="menu-item">
-										<a href="">
+										<a href="#members">
 											<span>Members</span>
 										</a>
 									</li>
@@ -68,9 +68,9 @@
 							<div class="one-nav-wrap mobile collapse">
 								<ul class="one-nav">
 									<li class="menu-item menu-item-has-children">
-										<a href="">
+										<a href="index.html">
 											<span>Home</span>
-										</a>
+										</a><!--
 										<ul class="sub-menu">
 											<li class="menu-item menu-item-has-children">
 												<a href="#holder">
@@ -87,17 +87,17 @@
 															<span>Link 2</span>
 														</a>
 													</li>
-												</ul>
+												</ul> 
 											</li>
-										</ul>
+										</ul> -->
 									</li>
 									<li class="menu-item">
-										<a href="">
+										<a href="#article-add-member">
 											<span>Add member</span>
 										</a>
 									</li>
 									<li class="menu-item">
-										<a href="">
+										<a href="#members">
 											<span>Members</span>
 										</a>
 									</li>
@@ -116,7 +116,7 @@
 
 				<article id="article-easy-steps" class="format-standard hentry"></article>
 
-				<article class="page type-page hentry no-post-thumbnail">
+				<article id="article-add-member" class="page type-page hentry no-post-thumbnail">
 					<div class="entry-wrap">
 						<header class="entry-header">
 							<h1 class="entry-title">Add Member</h1>
@@ -145,15 +145,17 @@
 								</p>
 							</div>
 						</div>
-						<h1 class="entry-title">Members List</h1>
-						<div class="entry-content content">
-							<ol id="members-list">
-							</ol>
+						<div id="members">
+							<h1 class="entry-title">Members List</h1>
+							<div class="entry-content content">
+								<ol id="members-list">
+								</ol>
+							</div>
+							<p>
+								<input type="submit" value="Draw Secret Santas" id="draw-secret-santas" />
+								<img class="ajax-loader" src="images/ajax-loader.gif" alt="Drawing..." style="visibility: hidden;" />
+							</p>
 						</div>
-						<p>
-							<input type="submit" value="Draw Secret Santas" id="draw-secret-santas" />
-							<img class="ajax-loader" src="images/ajax-loader.gif" alt="Drawing..." style="visibility: hidden;" />
-						</p>
 					</div>
 				</article>
 
