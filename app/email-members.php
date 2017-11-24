@@ -29,8 +29,8 @@
 
       foreach($members_list as $member) {
         $member_name = trim_input($member->memberName);
-        //$to = trim_input($member->memberEmail);
-        $to = 'kristietamato@gmail.com';
+        $to = trim_input($member->memberEmail);
+        //$to = 'kristietamato@gmail.com';
         $secret_santa_for = trim_input($member->memberSecretSanta);
         $body = new Body();
         $body->setBody($member_name, $secret_santa_for, $group_name, $budget, $exchange_date, $message);
