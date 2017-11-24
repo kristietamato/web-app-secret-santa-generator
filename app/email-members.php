@@ -29,8 +29,7 @@
 
       foreach($members_list as $member) {
         $member_name = trim_input($member->memberName);
-        $to = trim_input($member->memberEmail);
-        //$to = 'kristietamato@gmail.com';
+        $to = stripslashes($member->memberEmail);
         $secret_santa_for = trim_input($member->memberSecretSanta);
         $body = new Body();
         $body->setBody($member_name, $secret_santa_for, $group_name, $budget, $exchange_date, $message);
@@ -53,7 +52,7 @@
       <html>
         <body>
           <center>
-            <img src="http://secretsanta.tamato.org/images/secret-santa.jpg" />
+            <a href="secretsanta.tamato.org"><img src="http://secretsanta.tamato.org/images/secret-santa.jpg" /></a>
             <h2>Hello ' . $memberName . '!</h2>
             <h3>You are the Secret Santa for... <font style="color: red;">' . strtoupper($secretSantaFor) . '</font></h3>
             <table style="border-color: #666; width: 400px;" cellpadding="15">
