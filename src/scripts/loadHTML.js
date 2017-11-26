@@ -17,3 +17,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   $('#footer-contact').load('partials/footer-contact.html');
 });
+
+$(document).ready(function() {
+  $('#article-success').load('partials/article-success.html');
+});

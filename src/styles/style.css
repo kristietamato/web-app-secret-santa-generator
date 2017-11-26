@@ -181,7 +181,7 @@ h6,
 }
 
 .container.max {
-  max-width: 620px;
+  max-width: 510px;
 }
 
 .one-main.full {
@@ -338,10 +338,6 @@ body.one-navbar-fixed-top-active .one-navbar-wrap {
   border-color: #ba0b56;
   background-color: #ba0b56;
   text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.5);
-}
-
-#article-send-email {
-  display: none;
 }
 
 #footer-contact {
