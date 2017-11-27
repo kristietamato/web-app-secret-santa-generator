@@ -96,3 +96,70 @@ function listener(index) {
     handlers.deleteMember(index);
   }
 }
+
+function validateName(name) {
+  clearErrors();
+  var alphaExp = /^[a-zA-Z]+$/;
+  if (name.value.match(alphaExp)) {
+    return true;
+  } else {
+    document.getElementById('name-error').style.display = 'inline-block';
+    name.focus();
+    return false;
+  }
+}
+
+function validateEmail(email) {
+  clearErrors();
+  var alphaExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (email.value.match(alphaExp)) {
+    return true;
+  } else {
+    document.getElementById('email-error').style.display = 'inline-block';
+    email.focus();
+    return false;
+  }
+}
+
+function validateGroupName(group) {
+  clearErrors();
+  var alphaExp = /^[a-z0-9]+$/i;
+  if (group.value.match(alphaExp)) {
+    return true;
+  } else {
+    document.getElementById('group-error').style.display = 'inline-block';
+    group.focus();
+    return false;
+  }
+}
+
+function validateBudget(budget) {
+  clearErrors();
+  var alphaExp = ^[1-9]\d*(,\d+)?$;
+  if (budget.value.match(alphaExp)) {
+    return true;
+  } else {
+    document.getElementById('budget-error').style.display = 'inline-block';
+    budget.focus();
+    return false;
+  }
+}
+
+function valiDate(date) {
+  clearErrors();
+  var alphaExp = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+  if (date.value.match(alphaExp)) {
+    return true;
+  } else {
+    document.getElementById('date-error').style.display = 'inline-block';
+    date.focus();
+    return false;
+  }
+}
+
+function clearErrors() {
+  var error = document.getElementsByClassName('error');
+  for (var i = 0; i < error.length; i++) {
+    error[i].style.display = 'none';
+  }
+}

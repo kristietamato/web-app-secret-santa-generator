@@ -39,9 +39,19 @@ var handlers = {
   addMember: function() {
     var name = document.getElementById('input-name');
     var email = document.getElementById('input-email');
-    membersList.addMember(name.value, email.value);
-    name.value = '';
-    email.value = '';
+    if(validateName(name) && validateEmail(email)) {
+      membersList.addMember(name.value, email.value);
+      clearErrors();
+      name.value = '';
+      email.value = '';
+    } else if(!validateName(name) && validateEmail(email)){
+      name.value = '';
+    } else if(validateName(name) && !validateEmail(email)) {
+      email.value = '';
+    } else {
+      name.value = '';
+      email.value = '';
+    }
     view.displayMembers();
   },
   deleteMember: function(id) {

@@ -345,3 +345,15 @@ body.one-navbar-fixed-top-active .one-navbar-wrap {
   background-position: center;
   background-color: #fff;
 }
+
+.error,
+#name-error,
+#email-error,
+#group-error,
+#budget-error,
+#date-error {
+  color: red;
+  padding: 5px 0 5px 0;
+  text-align: center;
+  display: none;
+}
