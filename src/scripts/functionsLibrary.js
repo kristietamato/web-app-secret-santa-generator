@@ -10,6 +10,7 @@ function drawSecretSantas() {
 
   if (totalMembers < 2) {
     document.getElementById('member-error').style.display = 'inline-block';
+    document.getElementById('drawn').style.display = 'none';
     return;
   }
 

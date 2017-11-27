@@ -10,11 +10,11 @@ include 'email-members.php';
   <div class="entry-content content">
     <div role="form">
       <div class="screen-reader-response"></div>
-      <form method="post" action="success.html">
-        <p>Group name (required)
+      <form method="post" action="success.html" novalidate="novalidate">
+        <p>Group name
           <br>
           <span>
-            <input type="text" id="group-name" name="group-name" value="" size="40" aria-required="false" aria-invalid="false" required>
+            <input type="text" id="group-name" name="group-name" value="" size="40" aria-required="false" aria-invalid="false">
           </span>
           <span id="group-error" class="error">Please enter a valid group name</span>
         </p>
@@ -28,7 +28,7 @@ include 'email-members.php';
         <p>Date of gift exchange
           <br>
           <span>
-            <input type="date" id="exchange-date" name="exchange-date" value="" size="40" aria-required="false" aria-invalid="true">
+            <input type="date" id="exchange-date" name="exchange-date" value="" size="40" aria-invalid="false">
           </span>
           <span id="date-error" class="error">Please enter a valid date</span>
         </p>
