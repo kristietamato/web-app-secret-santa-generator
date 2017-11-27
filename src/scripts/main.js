@@ -42,6 +42,7 @@ var handlers = {
     clearErrors('error');
     if(validateName(name) && validateEmail(email)) {
       membersList.addMember(name.value, email.value);
+      name.focus();
       name.value = '';
       email.value = '';
     } else if(!validateName(name) && validateEmail(email)){

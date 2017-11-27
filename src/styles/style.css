@@ -367,3 +367,7 @@ body.one-navbar-fixed-top-active .one-navbar-wrap {
   text-align: center;
   display: none;
 }
+
+#email-all-members {
+  display: none;
+}
