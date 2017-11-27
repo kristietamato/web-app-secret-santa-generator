@@ -133,19 +133,19 @@
 									<p>Name (required)
 										<br>
 										<span class="your-name">
-											<input type="text" id="input-name" name="input-name" value="" size="40" aria-required="true" aria-invalid="false" required>
+											<input type="text" id="input-name" name="input-name" value="" size="40" aria-required="true" aria-invalid="true" required>
 										</span>
 										<span id="name-error" class="error">Please enter a valid name</span>
 									</p>
 									<p>Email (required)
 										<br>
 										<span class="your-email">
-											<input type="email" id="input-email" name="input-email" value="" size="40" aria-required="true" aria-invalid="false" required>
+											<input type="email" id="input-email" name="input-email" value="" size="40" aria-required="true" aria-invalid="true" required>
 											<span id="email-error" class="error">Please enter a valid email</span>
 										</span>
 									</p>
 									<p>
-										<input type="submit" value="Add" id="add-member-btn" onclick="return false;" />
+										<button type="submit" id="add-member-btn" onclick="return false;" />Add</button>
 										<img class="ajax-loader" src="images/ajax-loader.gif" alt="Adding..." style="visibility: hidden;" />
 									</p>
 								</form>
@@ -157,14 +157,14 @@
 								<ol id="members-list">
 								</ol>
 							</div>
-							<p>
-								<input type="submit" value="Draw Secret Santas" id="draw-secret-santas" />
-								<img class="ajax-loader" src="images/ajax-loader.gif" alt="Drawing..." style="visibility: hidden;" />
-							</p>
-							<span id="member-error" class="error">Please add at least 2 members</span>
-							<span id="draw-error" class="error">Something went wrong. Please try drawing again...</span>
-							<span id="drawn" class="info">Secret Santas drawn!</span>
 						</div>
+						<p>
+							<button type="submit" id="draw-secret-santas" />Draw Secret Santas</button>
+							<img class="ajax-loader" src="images/ajax-loader.gif" alt="Drawing..." style="visibility: hidden;" />
+						</p>
+						<span id="member-error" class="error">Please add at least 2 members</span>
+						<span id="draw-error" class="error">Something went wrong. Please try drawing again...</span>
+						<span id="drawn" class="info">Secret Santas drawn!</span>
 					</div>
 				</article>
 
