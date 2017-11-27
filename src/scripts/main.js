@@ -39,9 +39,9 @@ var handlers = {
   addMember: function() {
     var name = document.getElementById('input-name');
     var email = document.getElementById('input-email');
+    clearErrors('error');
     if(validateName(name) && validateEmail(email)) {
       membersList.addMember(name.value, email.value);
-      clearErrors();
       name.value = '';
       email.value = '';
     } else if(!validateName(name) && validateEmail(email)){

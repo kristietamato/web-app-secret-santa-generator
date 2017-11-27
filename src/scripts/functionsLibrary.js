@@ -8,8 +8,8 @@ function drawSecretSantas() {
 
   membersArrayShuffled = shuffle(membersArrayCopy);
 
-  if (totalMembers === 0) {
-    alert('Please add a member');
+  if (totalMembers < 2) {
+    document.getElementById('member-error').style.display = 'inline-block';
     return;
   }
 
@@ -19,7 +19,7 @@ function drawSecretSantas() {
     if (membersArray[count].memberName === membersArrayShuffled[0].memberName) {
       // If it's the last item in the members array
       if (count === (totalMembers - 1)) {
-        return alert('Error: please draw again');
+        document.getElementById('draw-error').style.display = 'inline-block';
       } else {
         // Swap first 2 members of shuffled array
         swap(membersArrayShuffled, 0, 1);
@@ -30,6 +30,7 @@ function drawSecretSantas() {
     // Pop the first item in shuffled arrays
     membersArrayShuffled.splice(0, 1);
   }
+  document.getElementById('drawn').style.display = 'inline-block';
   return showSendEmail(membersArray);
 }
 
@@ -50,16 +51,33 @@ function sendDataToServer(membersArray) {
   var exchangeDate = document.getElementById('exchange-date').value;
   var message = document.getElementById('email-message').value;
 
-  $.ajax({
-    type: 'POST',
-    url: 'email-members.php',
-    dataType: 'json',
-    data: {
-      membersList: membersJSON,
-      groupName: groupName,
-      budget: budget,
-      exchangeDate: exchangeDate,
-      message: message
+  clearErrors('error');
+  jQuery("email-all-members").bind('submit', function(e) {
+    if (!validateGroupName(groupName) || !validateBudget(budget) || !valiDate(exchangeDate)) {
+      if (!validateGroupName(groupName)) {
+        grouName = '';
+      } else if (!validateBudget(budget)) {
+        budget = '';
+      } else if (!valiDate(exchangeDate)) {
+        exchangeDate = '';
+      }
+      e.preventDefault();
+      return false;
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: 'email-members.php',
+        dataType: 'json',
+        data: {
+          membersList: membersJSON,
+          groupName: groupName,
+          budget: budget,
+          exchangeDate: exchangeDate,
+          message: message
+        }
+      });
+      e.preventDefault();
+      return false;
     }
   });
 }
@@ -98,11 +116,12 @@ function listener(index) {
 }
 
 function validateName(name) {
-  clearErrors();
   var alphaExp = /^[a-zA-Z]+$/;
   if (name.value.match(alphaExp)) {
+    clearErrors('name-error');
     return true;
   } else {
+    name.value = '';
     document.getElementById('name-error').style.display = 'inline-block';
     name.focus();
     return false;
@@ -110,11 +129,12 @@ function validateName(name) {
 }
 
 function validateEmail(email) {
-  clearErrors();
   var alphaExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (email.value.match(alphaExp)) {
+    clearErrors('email-error');
     return true;
   } else {
+    email.value = '';
     document.getElementById('email-error').style.display = 'inline-block';
     email.focus();
     return false;
@@ -122,11 +142,12 @@ function validateEmail(email) {
 }
 
 function validateGroupName(group) {
-  clearErrors();
   var alphaExp = /^[a-z0-9]+$/i;
   if (group.value.match(alphaExp)) {
+    clearErrors('group-error');
     return true;
   } else {
+    group.value = '';
     document.getElementById('group-error').style.display = 'inline-block';
     group.focus();
     return false;
@@ -134,11 +155,12 @@ function validateGroupName(group) {
 }
 
 function validateBudget(budget) {
-  clearErrors();
-  var alphaExp = ^[1-9]\d*(,\d+)?$;
-  if (budget.value.match(alphaExp)) {
+  var alphaExp = /^(\s*|\d+)$/;
+  if (budget.value.match(alphaExp) || budget == '') {
+    clearErrors('budget-error');
     return true;
   } else {
+    budget.value = '';
     document.getElementById('budget-error').style.display = 'inline-block';
     budget.focus();
     return false;
@@ -146,20 +168,25 @@ function validateBudget(budget) {
 }
 
 function valiDate(date) {
-  clearErrors();
   var alphaExp = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
-  if (date.value.match(alphaExp)) {
+  if (date.value.match(alphaExp) || date == '') {
+    clearErrors('date-error');
     return true;
   } else {
+    date.value = '';
     document.getElementById('date-error').style.display = 'inline-block';
     date.focus();
     return false;
   }
 }
 
-function clearErrors() {
-  var error = document.getElementsByClassName('error');
-  for (var i = 0; i < error.length; i++) {
-    error[i].style.display = 'none';
+function clearErrors(idOrClass) {
+  if (idOrClass == 'error') {
+    var error = document.getElementsByClassName('error');
+    for (var i = 0; i < error.length; i++) {
+      error[i].style.display = 'none';
+    }
+  } else if (idOrClass != 'error') {
+    document.getElementById(idOrClass).style.display == 'none';
   }
 }

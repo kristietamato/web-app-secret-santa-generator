@@ -351,8 +351,18 @@ body.one-navbar-fixed-top-active .one-navbar-wrap {
 #email-error,
 #group-error,
 #budget-error,
-#date-error {
+#date-error,
+#member-error,
+#draw-error {
   color: red;
+  padding: 5px 0 5px 0;
+  text-align: center;
+  display: none;
+}
+
+.info,
+#drawn {
+  color: green;
   padding: 5px 0 5px 0;
   text-align: center;
   display: none;

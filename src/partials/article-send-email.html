@@ -11,23 +11,26 @@ include 'email-members.php';
     <div role="form">
       <div class="screen-reader-response"></div>
       <form method="post" action="success.html" novalidate="novalidate">
-        <p>Group name
+        <p>Group name (required)
           <br>
           <span class="your-name">
-            <input type="text" id="group-name" name="group-name" value="" size="40" aria-required="true" aria-invalid="false">
+            <input type="text" id="group-name" name="group-name" value="" size="40" aria-required="true" aria-invalid="false" required>
           </span>
+          <span id="group-error" class="error">Please enter a valid group name</span>
         </p>
         <p>Budget
           <br>
           <span class="your-email">
             <input type="email" id="budget" name="budget" placeholder="$" value="" size="40" aria-required="true" aria-invalid="false">
           </span>
+          <span id="budget-error" class="error">Please enter a numeric budget</span>
         </p>
         <p>Date of gift exchange
           <br>
           <span class="your-subject">
             <input type="date" id="exchange-date" name="exchange-date" value="" size="40" aria-invalid="false">
           </span>
+          <span id="date-error" class="error">Please enter a valid date</span>
         </p>
         <p>Message
           <br>
