@@ -12,7 +12,7 @@
     if(!empty($_POST['budget'])) {
       $budget = trim_input($_POST['budget']);
     } else {
-      $budget = 50;
+      $budget = 'none';
     }
     if(!empty($_POST['exchangeDate'])) {
       $exchange_date = $_POST['exchangeDate'];

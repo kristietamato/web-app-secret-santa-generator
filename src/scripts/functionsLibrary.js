@@ -31,47 +31,36 @@ function drawSecretSantas() {
     membersArrayShuffled.splice(0, 1);
   }
   document.getElementById('drawn').style.display = 'inline-block';
-  return showSendEmailBtn();
+  return showSendEmailBtn(membersArray);
 }
 
-function showSendEmailBtn() {
+function showSendEmailBtn(membersArray) {
   // Show button 
   document.getElementById('email-all-members').style.display = 'inline-block';
+  document.getElementById('email-all-members').onclick = function() {
+    sendDataToServer(membersArray);
+  }
 }
 
-function sendDataToServer() {
-  var membersJSON = JSON.stringify(membersList.members);
+function sendDataToServer(membersArray) {
+  var membersJSON = JSON.stringify(membersArray);
   var groupName = document.getElementById('group-name').value;
   var budget = document.getElementById('budget').value;
   var exchangeDate = document.getElementById('exchange-date').value;
   var message = document.getElementById('email-message').value;
 
-  if (!validateGroupName(groupName) || !validateBudget(budget) || !valiDate(exchangeDate)) {
-    if (!validateGroupName(groupName)) {
-      grouName = '';
-    } 
-    if (!validateBudget(budget)) {
-      budget = '';
-    } 
-    if (!valiDate(exchangeDate)) {
-      exchangeDate = '';
+  $.ajax({
+    type: 'POST',
+    url: 'email-members.php',
+    dataType: 'json',
+    data: {
+      membersList: membersJSON,
+      groupName: groupName,
+      budget: budget,
+      exchangeDate: exchangeDate,
+      message: message
     }
-    return false;
-  } else {
-    $.ajax({
-      type: 'POST',
-      url: 'email-members.php',
-      dataType: 'json',
-      data: {
-        membersList: membersJSON,
-        groupName: groupName,
-        budget: budget,
-        exchangeDate: exchangeDate,
-        message: message
-      }
-    });
-    return true;
-  }
+  });
 }
 
 // https://git.daplie.com/Daplie/knuth-shuffle
@@ -129,51 +118,6 @@ function validateEmail(email) {
     email.value = '';
     document.getElementById('email-error').style.display = 'inline-block';
     email.focus();
-    return false;
-  }
-}
-
-function validateGroupName(group) {
-  var alphaExp = /^[a-z0-9]+$/i;
-  if(group == '') {
-    document.getElementById('group-error').style.display = 'inline-block';
-    return false;
-  }
-  if (group.value.match(alphaExp)) {
-    clearErrors('group-error');
-    return true;
-  } else {
-    group.value = '';
-    document.getElementById('group-error').style.display = 'inline-block';
-    group.focus();
-    return false;
-  }
-}
-
-function validateBudget(budget) {
-  var alphaExp = /^(\s*|\d+)$/;
-  if (budget.value.match(alphaExp) || budget == '') {
-    clearErrors('budget-error');
-    return true;
-  } else {
-    budget.value = '';
-    document.getElementById('budget-error').style.display = 'inline-block';
-    budget.focus();
-    return false;
-  }
-}
-
-function valiDate(date) {
-  var today = new Date('2011-04-11T10:20:30Z');
-  var inputDate = new Date(date).toUTCString();
-  var alphaExp = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
-  if (date.value.match(alphaExp) || date == '' || inputDate < today) {
-    clearErrors('date-error');
-    return true;
-  } else {
-    date.value = '';
-    document.getElementById('date-error').style.display = 'inline-block';
-    date.focus();
     return false;
   }
 }
